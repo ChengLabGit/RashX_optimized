@@ -1,5 +1,5 @@
-## Rashx R Package
-The Rashx package provides a function process_requests for processing requests using various R packages. This function takes several parameters and performs data processing and analysis tasks related to gene expression data. It utilizes packages such as Seurat, metap, MAST, scDblFinder, ggplot2, cowplot, patchwork, stringr, RColorBrewer, ComplexHeatmap, circlize, tidyverse, concaveman, ggforce, monocle3, dplyr, Rmisc, ggrepel, raster, vegan, and plyr.
+## RashX R Package
+The RashX package provides a function process_requests to classify cutaneous human immune cells taken from skin rashes as either psoriatiform or atopic dermatiform based on their single-cell gene expression profiles. This function takes an input RDS created from default Seurat pre-processing and performs the classification.  It utilizes dependendies Seurat, metap, MAST, ggplot2, cowplot, patchwork, stringr, RColorBrewer, ComplexHeatmap, circlize, tidyverse, concaveman, ggforce, monocle3, dplyr, Rmisc, ggrepel, raster, vegan, and plyr.  Output includes heatmaps of atopic dermatitis and psoriosis gene signature expression; figures depicting query-sample classification in a reduced gene expression space; and statistical results reporting the significance of the proximity of a query sample to reference atopic dermatitis and psoriasis samples in this reduced gene expression space.
 
 ## Installation
 To install the Rashx package from GitHub, you can use the remotes package in R. Run the following code in R:
@@ -15,8 +15,8 @@ Replace "username/repo" with the actual repository name where the Rashx package 
 ## Usage
 The main function in the Rashx package is process_requests. Here is a brief description of its parameters:
 
-rds1: The path to the RDS file.
-exported_file_name: The name of the exported CSV file.
+rds1: The path to the user's query RDS file containing Seurat-processed cutaneous immune cell scRNAseq for which classification will be performed.  The expression matrix must be log-normalized (LogNormalize c.f. SCT in Seurat).
+exported_file_name: The name of the exported CSV file containing statistical results of the classification.
 plot1_name: The name of the AD-specific genes heatmap plot.
 plot2_name: The name of the PV-specific genes heatmap plot.
 plot3_name: The name of the sample-level means plot without individual cells.
