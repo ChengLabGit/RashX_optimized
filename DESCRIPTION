@@ -1,11 +1,16 @@
-Package: Rashx
+Package: RashxPackage
 Type: Package
 Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: JB-Cheng
-Maintainer: JB-Cheng <jb-cheng@gmail.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Version: 0.1.1
+Author: Jeffrey.Cheng
+Maintainer: The package maintainer <Jeffrey.Cheng@ucsf.edu>
+Description: The RashX package provides a function process_requests to classify cutaneous human immune cells taken from skin rashes as either psoriatiform or atopic dermatiform based on their single-cell gene expression profiles. This function takes an input RDS created from default Seurat pre-processing and performs the classification. It utilizes dependendies Seurat, metap, MAST, ggplot2, cowplot, patchwork, stringr, RColorBrewer, ComplexHeatmap, circlize, tidyverse, concaveman, ggforce, monocle3, dplyr, Rmisc, ggrepel, raster, vegan, and plyr. Output includes heatmaps of atopic dermatitis and psoriosis gene signature expression; figures depicting query-sample classification in a reduced gene expression space; and statistical results reporting the significance of the proximity of a query sample to reference atopic dermatitis and psoriasis samples in this reduced gene expression space.
+License: Open SOurce
 Encoding: UTF-8
 LazyData: true
+Imports:
+    dplyr,
+    ggplot2,
+    BiocManager,
+    GenomicRanges
+RoxygenNote: 7.2.3
