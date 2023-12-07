@@ -42,7 +42,6 @@
 }
 
 \details{
-  The function requires the following packages:
   \itemize
   \item Seurat
   \item metap
