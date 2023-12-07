@@ -8,7 +8,7 @@ To install the Rashx package from GitHub, you can use the remotes package in R. 
 install.packages("remotes")
 install.packages("devtools")
 devtools::install_github('cole-trapnell-lab/monocle3')
-remotes::install_github("username/repo")
+remotes::install_github("https://github.com/ChengLabGit/RashX_optimized.git")
 
 
 ```
