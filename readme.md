@@ -25,9 +25,10 @@ plot3_name: The name of the sample-level means plot without individual cells.
 plot4_name: The name of the sample-level means plot with individual cells.
 original_file_name: The name of the original file.
 To use the process_requests function, provide the required parameters and call the function as shown below:
-
+Download the model_file from : https://assetsdemo.s3.us-east-2.amazonaws.com/skin_integrated.rds
+ 
 ```
-process_requests(rds1, exported_file_name, plot1_name, plot2_name, plot3_name, plot4_name, original_file_name)
+process_requests(model_file_path,rds1, exported_file_name, plot1_name, plot2_name, plot3_name, plot4_name, original_file_name)
 ```
 Make sure to replace the parameter values with the actual file paths and names.
 
