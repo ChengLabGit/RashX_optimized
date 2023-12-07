@@ -1,7 +1,4 @@
-#' Process Requests
-#'
-#' Description: This function processes requests using various R packages.
-#'
+# Hello, world!
 #' @param rds1 The path to the RDS file.
 #' @param exported_file_name The name of the exported CSV file.
 #' @param plot1_name The name of the AD-specific genes heatmap plot.
@@ -9,9 +6,30 @@
 #' @param plot3_name The name of the sample-level means plot without individual cells.
 #' @param plot4_name The name of the sample-level means plot with individual cells.
 #' @param original_file_name The name of the original file.
-#'
-#' @return A message indicating the processing is complete.
-#'
+# This is an example function named 'hello'
+# which prints 'Hello, world!'.
+#
+# You can learn more about package authoring with RStudio at:
+#
+#   http://r-pkgs.had.co.nz/
+#
+# Some useful keyboard shortcuts for package authoring:
+#
+#   Install Package:           'Ctrl + Shift + B'
+#   Check Package:             'Ctrl + Shift + E'
+#   Test Package:              'Ctrl + Shift + T'
+.onAttach <- function(libname, pkgname) {
+  bioconductor_packages <- c("MAST", "multtest", "scDblFinder", "ComplexHeatmap", "batchelor")
+  missing_packages <- bioconductor_packages[!bioconductor_packages %in% rownames(installed.packages())]
+
+  if (length(missing_packages) > 0) {
+    message("To use all functionalities of ", pkgname, ", install the following Bioconductor packages: ",
+            paste(missing_packages, collapse = ", "),
+            "\nYou can install them using the following command:\n",
+            "if (!requireNamespace('BiocManager', quietly = TRUE)) install.packages('BiocManager'); ",
+            "BiocManager::install(c('", paste(missing_packages, collapse = "', '"), "'))")
+  }
+}
 #' @import Seurat
 #' @import metap
 #' @import MAST
@@ -34,15 +52,19 @@
 #' @import vegan
 #' @import plyr
 #' @export
-process_requests <- function(rds1, exported_file_name, plot1_name, plot2_name, plot3_name,plot4_name, original_file_name) {
+process_requests <- function(rds1, exported_file_name,
+                             plot1_name = "plot1.png",
+                             plot2_name = "plot2.png",
+                             plot3_name = "plot3.png",
+                             plot4_name = "plot4.png",
+                             original_file_name = "original_data.csv") {
+  print("Hello, world!")
+  data_file_path <- system.file("extdata", "skin_integrated.rds", package = "RashxPackage")
+  skin.integrated <- readRDS(data_file_path)
+  print(colnames(skin.integrated))
 
-  package_dir <- system.file(package = "Rashx")
-  data_file_path <- file.path(package_dir, "data", "skin_integrated.rds")
+  print(original_file_name)
 
-  skin.integrated <-
-    readRDS(data_file_path)
-  print(getwd())
-  print(original_file_name,data_file_path)
 
   ############# this part to upload, user may upload more than one files, how to assign them automatically##########
   skinX.query <- readRDS(rds1)
@@ -807,4 +829,6 @@ process_requests <- function(rds1, exported_file_name, plot1_name, plot2_name, p
   write.csv(statistic, exported_file_name)
 
   return("Processed")
+
+
 }
